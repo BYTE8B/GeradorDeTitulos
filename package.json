@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "tsx watch src/local.ts",
     "build": "tsc -p tsconfig.json",
-    "start": "node src/server.js"
+    "start": "node dist/server.js"
   },
   "author": "",
   "license": "ISC",
