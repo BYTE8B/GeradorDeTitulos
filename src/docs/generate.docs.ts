@@ -10,8 +10,7 @@ export const generateDocSchema = {
         400: Type.Object({ errors: Type.Any() }),
         401: Type.Object({ message: Type.String() }),
         500: Type.Object({ message: Type.String() }),
-    },
-    security: [{ bearerAuth: [] }]
+    }
 }
 
 export const generateWithCustomSeedDocSchema = {
@@ -23,7 +22,6 @@ export const generateWithCustomSeedDocSchema = {
         400: Type.Object({ errors: Type.Any() }),
         401: Type.Object({ message: Type.String() }),
         500: Type.Object({ message: Type.String() }),
-    },
-    security: [{ bearerAuth: [] }]
+    }
 }
 
