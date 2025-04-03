@@ -19,7 +19,6 @@ export function buildServer() {
 
   app.setErrorHandler(errorHandler);
 
-  app.register(require('./plugins/auth').default);
   app.register(routes);
 
   return app;
