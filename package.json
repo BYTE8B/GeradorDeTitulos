@@ -4,8 +4,8 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "tsx watch src/local.ts",
-    "build": "tsc -p tsconfig.json",
-    "start": "node dist/server.js"
+    "build": "vercel build",
+    "start": "vercel start"
   },
   "author": "",
   "license": "ISC",
