@@ -1,6 +1,9 @@
-import { Octokit } from "@octokit/rest";
+
 
 export async function sendToGist(data: string, description: string, seed: number, date: string): Promise<string | undefined> {
+    // Importação dinâmica
+    const { Octokit } = await import('@octokit/rest');
+    
     const octokit = new Octokit({
         auth: process.env.GITHUB_TOKEN, // Token de autenticação do GitHub
     });
