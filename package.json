@@ -2,6 +2,7 @@
   "name": "ticket-generate",
   "version": "1.0.0",
   "main": "src/server.js",
+  "type": "module",
   "scripts": {
     "dev": "tsx watch src/local.ts",
     "build": "vercel build",
