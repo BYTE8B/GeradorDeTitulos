@@ -1,8 +1,8 @@
 import { Type } from '@sinclair/typebox';
 
 export enum PrizeType {
-    MAIN = 'main',
-    LUCKY_TICKET = 'lucky_ticket'
+    LUCKY_TICKET = 'lucky_ticket',
+    OTHER = 'other'
 }
 
 export const generateBodySchema = Type.Object({
