@@ -10,7 +10,7 @@ export async function generateController(
     request: FastifyRequest<{ Body: GenerateBody }>, 
     reply: FastifyReply
 ) {
-    const { amount, title, seed, type, description, value, image } = request.body;
+    const { amount, title, seed, type, description, value, image, ticket_digits_number } = request.body;
     try {
         let seedNumber = seed;
         if(!seedNumber){
@@ -24,9 +24,9 @@ export async function generateController(
         
         while (uniqueNumbers.size < amount) {
             
-            const randomValue = (random() % 9999999) + 1;
+            const randomValue = (random() % (Math.pow(10, ticket_digits_number || 7) - 1)) + 1;
             
-            const formattedNumber = randomValue.toString().padStart(7, '0');
+            const formattedNumber = randomValue.toString().padStart(ticket_digits_number || 7, '0');
             uniqueNumbers.add({
                 value: value,
                 type: type,
@@ -53,7 +53,7 @@ export async function generateController(
 }
 
 export async function generateWithCustomSeedController(request: FastifyRequest, reply: FastifyReply) {
-    const { amount, prize, title, seed, date } = request.body as { amount: number; prize: number; title: string; seed: number; date: string };
+    const { amount, prize, title, seed, date, ticket_digits_number } = request.body as { amount: number; prize: number; title: string; seed: number; date: string; ticket_digits_number: number };
 
     try {
         const currentDate = new Date(date);
@@ -63,9 +63,9 @@ export async function generateWithCustomSeedController(request: FastifyRequest, 
         
         while (uniqueNumbers.size < amount) {
             
-            const randomValue = (random() % 9999999) + 1;
+            const randomValue = (random() % (Math.pow(10, ticket_digits_number || 7) - 1)) + 1;
             
-            const formattedNumber = randomValue.toString().padStart(7, '0');
+            const formattedNumber = randomValue.toString().padStart(ticket_digits_number || 7, '0');
             uniqueNumbers.add({
                 ticket: formattedNumber,
                 prize: prize

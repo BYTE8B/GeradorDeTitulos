@@ -13,6 +13,7 @@ export const generateBodySchema = Type.Object({
     image: Type.Optional(Type.String({ format: 'uri' })),
     amount: Type.Number({ minimum: 1 }),
     seed: Type.Optional(Type.Number()),
+    ticket_digits_number: Type.Optional(Type.Number({ minimum: 1 })),
 });
 
 export const generateResponseSchema = Type.Object({
@@ -35,4 +36,5 @@ export const generateWithCustomSeedBodySchema = Type.Object({
     title: Type.String(),
     seed: Type.Number(),
     date: Type.String(),
+    ticket_digits_number: Type.Optional(Type.Number({ minimum: 1 })),
 });
